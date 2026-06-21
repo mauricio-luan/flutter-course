@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen(this.changeRoute, {super.key});
 
+  final void Function() changeRoute;
   final String imagePath = 'assets/images/quiz.png';
 
   @override
@@ -10,7 +11,11 @@ class Home extends StatelessWidget {
     return Column(
       mainAxisSize: .min,
       children: [
-        Image.asset(imagePath, width: 200),
+        Image.asset(
+          imagePath,
+          width: 200,
+          color: const Color.fromARGB(100, 255, 255, 255),
+        ),
         const SizedBox(height: 50),
         const Text(
           "Learn Flutter the fun way!",
@@ -20,13 +25,14 @@ class Home extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 50),
-        OutlinedButton(
-          onPressed: () => debugPrint('clicked'),
+        OutlinedButton.icon(
+          onPressed: changeRoute,
           style: OutlinedButton.styleFrom(
             shape: const LinearBorder(),
             side: const BorderSide(width: 2),
           ),
-          child: const Text(
+          icon: const Icon(Icons.arrow_right_alt),
+          label: const Text(
             'Start Quiz',
             style: TextStyle(color: Colors.white),
           ),
