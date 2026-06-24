@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(this.changeRoute, {super.key});
@@ -17,11 +18,13 @@ class HomeScreen extends StatelessWidget {
           color: const Color.fromARGB(100, 255, 255, 255),
         ),
         const SizedBox(height: 50),
-        const Text(
+        Text(
           "Learn Flutter the fun way!",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 22,
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(
+              color: Colors.white,
+              fontSize: 22,
+            ),
           ),
         ),
         const SizedBox(height: 50),

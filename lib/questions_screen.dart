@@ -1,7 +1,7 @@
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/questions.dart';
 import 'package:flutter/material.dart';
-import 'package:adv_basics/models/quiz_questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -24,7 +24,7 @@ class CurrentQuestion extends StatefulWidget {
   const CurrentQuestion({super.key});
 
   @override
-  State<StatefulWidget> createState() => _CurrentQuestionState();
+  State<CurrentQuestion> createState() => _CurrentQuestionState();
 }
 
 class _CurrentQuestionState extends State<CurrentQuestion> {
@@ -40,18 +40,21 @@ class _CurrentQuestionState extends State<CurrentQuestion> {
     final question = data[index];
 
     return Column(
-      mainAxisSize: .min,
-      mainAxisAlignment: .center,
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
           question.question,
-          style: const TextStyle(color: Colors.white),
-          textAlign: .center,
+          style: GoogleFonts.poppins(textStyle: const TextStyle(color: Colors.white)),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 30),
         for (final answer in question.getShuffledAnswers())
-          AnswerButton(label: answer, callback: nextQuestion),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 2),
+            child: AnswerButton(label: answer, callback: nextQuestion),
+          ),
       ],
     );
   }

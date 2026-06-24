@@ -13,9 +13,12 @@ class AnswerButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 58, 14, 134),
         foregroundColor: Colors.white,
-        padding: const EdgeInsetsGeometry.symmetric(vertical: 10, horizontal: 40),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
       ),
-      child: Text(label),
+      child: Text(
+        label,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
